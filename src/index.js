@@ -32,14 +32,16 @@ function onInput(e) {
             }
             else if (data.length === 1) {
                 const countrysMarkup = createCountrytMarkup(data);
-               refs.countryContainer.insertAdjacentHTML('beforeend', countrysMarkup);
+                refs.countryContainer.insertAdjacentHTML('beforeend', countrysMarkup);
+                refs.searchInput.value = '';
             }
             else if (2 <= data.length <= 9) {
                 const contrieaList = createCountriesList(data);
                 refs.countryContainer.insertAdjacentHTML('beforeend', contrieaList);
 
             }
-        }).catch(onError).finally(() => refs.searchInput = ' ');
+        }).catch(onError)
+        .finally(() => refs.searchInput = ' ');
 };
 
 
